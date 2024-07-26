@@ -73,6 +73,13 @@ Free Palestine Bot is a multifunctional Discord bot designed to enhance your ser
     - `!line`: Toggles automatic image posting in the current channel (requires admin permissions).
     - `!stu`: Manually updates the bot status message in the current channel.
 
+## Some Pictures To Explain
+
+    - `Bot Status`
+    - <img src="https://b.top4top.io/p_31295szww1.png" alt="AstroMusic Illustration">
+
+
+
 ## Bot Permissions
 
 Ensure the bot has the following permissions in your Discord server:
