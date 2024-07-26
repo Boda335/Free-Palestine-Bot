@@ -77,6 +77,12 @@ Free Palestine Bot is a multifunctional Discord bot designed to enhance your ser
 
 - `Bot Status`
 - <img src="https://b.top4top.io/p_31295szww1.png" alt="AstroMusic Illustration">
+- `Daily Reminders`
+- <img src="https://j.top4top.io/p_31291o0oj1.png" alt="AstroMusic Illustration">
+- `Avatar Framing`
+- <img src="https://b.top4top.io/p_3129me29p1.png" alt="AstroMusic Illustration">
+- `Auto line`
+- <img src="https://a.top4top.io/p_3129c9oif1.png" alt="AstroMusic Illustration">
 
 
 
