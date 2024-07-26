@@ -25,7 +25,7 @@ Free Palestine Bot is a multifunctional Discord bot designed to enhance your ser
 
 3. **Setup configuration files**:
     - Create a `config.json` file with the following structure:
-      ```json
+      ```
       {
       "FRAME_URLS": [
         "https://e.top4top.io/p_3102rocca0.png",
