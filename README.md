@@ -10,7 +10,7 @@ Free Palestine Bot is a multifunctional Discord bot designed to enhance your ser
 
 # Installation
 
-`git clone https://github.com/Boda335/Free-Palestine-Bot.git`
+`git clone https://github.com/Boda335/Free-Palestine-Bot.git`\n\n
 `cd free-palestine-bot`
 
 # Install dependencies: 
