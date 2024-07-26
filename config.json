@@ -5,19 +5,16 @@
         "https://l.top4top.io/p_3102sd2h20.png",
         "https://g.top4top.io/p_3102qq8yp2.png",
         "https://h.top4top.io/p_3102nejqm3.png"
-        //you can add more
        ],
       "color_role_ids": [
       "ROLE_ID 1",
       "ROLE_ID 2",
       "ROLE_ID 3"
-      //you can add more
       ],
       "BOT_IDS": [
       BOT_IDS 1,
       BOT_IDS 2 ,
       BOT_IDS 3
-      //you can add more
       ],
       "UPDATE_CHANNEL_ID": UPDATE_CHANNEL_ID,
       "Ziker_ROLE_ID" : Ziker_ROLE_ID,
