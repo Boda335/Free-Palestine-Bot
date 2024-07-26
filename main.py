@@ -16,7 +16,8 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.presences = True
 intents.members = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+prefix = config['prefix']
+bot = commands.Bot(command_prefix=prefix, intents=intents)
 BOT_IDS = config["BOT_IDS"]
 UPDATE_CHANNEL_ID = config["UPDATE_CHANNEL_ID"]
 token = config['token']
@@ -102,22 +103,24 @@ async def reminder():
 async def on_message(message):
     if message.author.bot:
         return
-    if message.content == '!line' and message.author.guild_permissions.administrator:
-        channel_id = message.channel.id
-        if channel_id in auto_line_channels:
-            auto_line_channels.remove(channel_id)
-            embed = discord.Embed(
-                color=0xFF0000,
-                title='❌ Channel Update',
-                description='This channel has been removed from the auto line channels.'
-            )
-        else:
-            auto_line_channels.append(channel_id)
-            embed = discord.Embed(
-                color=0x00FF00,
-                title='✅ Channel Update',
-                description='This channel has been added to the auto line channels.'
-            )
+    if message.content.startswith(f'{prefix}line'):
+        # التحقق من صلاحيات المستخدم
+        if message.author.guild_permissions.administrator:
+            channel_id = message.channel.id
+            if channel_id in auto_line_channels:
+                auto_line_channels.remove(channel_id)
+                embed = discord.Embed(
+                    color=0xFF0000,
+                    title='❌ Channel Update',
+                    description='This channel has been removed from the auto line channels.'
+                )
+            else:
+                auto_line_channels.append(channel_id)
+                embed = discord.Embed(
+                    color=0x00FF00,
+                    title='✅ Channel Update',
+                    description='This channel has been added to the auto line channels.'
+                )
         await message.channel.send(embed=embed)
         await message.delete()
         with open('channels.json', 'w') as f:
@@ -186,7 +189,7 @@ def print_commands_table():
         status_text = "✅" if status else "❌"
         print(f"│ {command.ljust(29)} │ {status_text.center(9)} │")
     print("└───────────────────────────────┴────────────┘")
-    print("PREFIX LOAD [!]")
+    print(f'PREFIX LOAD [{prefix}]')
     print("Coded By Boda3350")
     print("https://discord.gg/DzjuTABN6E")
 
