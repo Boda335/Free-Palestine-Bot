@@ -14,7 +14,7 @@ Free Palestine Bot is a multifunctional Discord bot designed to enhance your ser
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/free-palestine-bot.git
+    git clone https://github.com/Boda335/Free-Palestine-Bot.git
     cd free-palestine-bot
     ```
 
