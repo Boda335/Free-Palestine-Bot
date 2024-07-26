@@ -157,6 +157,8 @@ async def send_or_update_embed(channel):
 @bot.command()
 async def stu(ctx):
     await send_or_update_embed(ctx.channel)
+    await ctx.message.delete()
+    
 @bot.event
 async def on_member_update(before, after):
     if before.id in BOT_IDS and before.status != after.status:
