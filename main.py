@@ -66,6 +66,7 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_ready():
     print(f'✅ | Logged in as {bot.user}')
+    bot.add_view(CustomView())
     update_status.start()
     change_role_colors.start()
     reminder.start()
@@ -140,7 +141,7 @@ async def send_or_update_embed(channel):
     for bot_id in BOT_IDS:
         bot_member = channel.guild.get_member(bot_id)
         if bot_member is not None:
-            status = "Online <a:13:1240368672367710338>" if bot_member.status != discord.Status.offline else "Offline <a:14:1240368761085755433>"
+            status = "Online <a:yes:1276899279327203451>" if bot_member.status != discord.Status.offline else "Offline <a:no:1276899284289323009>"
             embed.add_field(name=f"Bot: {bot_member.name}", value=f"Status: {status}", inline=False)
         else:
             embed.add_field(name=f"Bot ID: {bot_id}", value="Status: Not Found", inline=False)
@@ -194,5 +195,89 @@ def print_commands_table():
     print(f'PREFIX LOAD [{prefix}]')
     print("Coded By Boda3350")
     print("https://discord.gg/DzjuTABN6E")
+    
+    
+class CustomView(discord.ui.View):
+    def __init__(self):
+        super().__init__(timeout=None)  # عدم تحديد توقيت لانتهاء صلاحية الزر
 
+    @discord.ui.button(label="Server Channel", style=discord.ButtonStyle.primary, custom_id="button1")
+    async def button1_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
+        embed_response = discord.Embed(title="**رومات السيرفر**",color=0xae2fef)
+        embed_response.add_field(name="<#1276897170133483590>", value="**قوانين السيرفر التي يجب عليك إتباعها لتجنب العقوبات**", inline=False)
+        embed_response.add_field(name="<#1277584362971467847>", value="**تعرف من خلاله جديد السيرفر من فعاليات او تحديثات **", inline=False)
+        embed_response.add_field(name="<#1276897178085883935>", value="**اعرف الرتب الي موجودة وممكن تستعملها ازاي**", inline=False)
+        embed_response.add_field(name="<#1276897184020697249>", value="**تقدر تاخد منها رتب اهتماماتك زي الالعاب وبرامج الديزاين والفعاليات وكدا**", inline=False)
+        embed_response.add_field(name="<#1276897184775802893>", value="**روم يظهر الذين دعموا السيرفر ببوست**", inline=False)
+        embed_response.add_field(name="<#1276897163229532221>", value="**روم يمكنك التواصل مع الدعم الفني بخصوص شيء ما في السيرفر (شكوة ، إقتراح ، إعتراض بأسلوب لائق ....)**", inline=False)
+        embed_response.add_field(name="<#1276897190916395122>", value="**روم جيف اواي بنعمل فيها جيفاويات على جوايز كتير**", inline=False)
+        embed_response.add_field(name="<#1276897191809781891>", value="**الشات العام تقدر تتكلم مع الناس هنا**", inline=False)
+        embed_response.add_field(name="<#1276897198151307367>", value="**الشات المخصص للغات الاخرى غير العربية زي الانجليزي وغيرها**", inline=False)
+        embed_response.add_field(name="<#1276897199254409348>", value="**روم اقتباسات وكدا**", inline=False)
+        embed_response.add_field(name="<#1276897205126697082>", value="**روم بينزل فيها اخر اخبار الالعاب والعروض المجانية**", inline=False)
+        embed_response.add_field(name="<#1276897206443577384>", value="**روم الميمز والضحك وكدا**", inline=False)
+        embed_response.add_field(name="<#1276897212324118548>", value="**روم تقدر تنزل فيها سكرين شوت لحاجة عجبتك **", inline=False)
+        embed_response.add_field(name="<#1276897213322363043>", value="**لو عندك تصميم فيديو اوي اي فيديو عموما تقدر تنزله هنا**", inline=False)
+        embed_response.add_field(name="<#1276897219114565634>", value="**تقدر هنا تستعمل اوامر البوت**", inline=False)
+        embed_response.add_field(name="<#1276897228144775279>", value="**روم العد ملهاش هدف بس لي لا**", inline=False)
+        embed_response.add_field(name="<#1276897230145458259>", value="**لو عندك اقتراح او فكرة للسيرفر او اي حاجة اكتبها هنا**", inline=False)
+        embed_response.add_field(name="<#1276897236403490846>", value="**هنا تقدر تجيب تيم للعبة الي بتحبها مع العدد الي نفسك فيه **", inline=False)
+        embed_response.set_image(url="https://c.top4top.io/p_3165o81qx2.png")
+        embed_response.set_thumbnail(url="https://cdn.discordapp.com/attachments/1276923904392298599/1279402951663947871/logo.png?ex=66d45059&is=66d2fed9&hm=64b4f9259c102bda7b3a22f1d2322e582a41ea8d994be2908e51b398912b2e75&")
+        await interaction.response.send_message(embed=embed_response, ephemeral=True)
+
+    @discord.ui.button(label="Server Role", style=discord.ButtonStyle.secondary, custom_id="button2")
+    async def button2_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
+        embed_response = discord.Embed(title="**رتب السيرفر**",description="**رتب التفاعل **\n\n "
+                                       "<@&1276897177297227877> = \n **لفل كتابي 5 **\n **لفل صوتي 5** \n\n"
+                                       "<@&1276897176496246865> = \n**لفل كتابي 10** \n **لفل كتابي 10** \n\n"
+                                       "<@&1276897175690940457> = \n**لفل كتابي 15** \n **لفل كتابي 15** \n\n"
+                                       "<@&1276897174927441992> = \n**لفل كتابي 25** \n **لفل كتابي 25**  \n\n"
+                                       "<@&1276897174210220125> = \n**لفل كتابي 35** \n **لفل كتابي 35**\n\n"
+                                       "<@&1276897173186809858> = \n**لفل كتابي 45** \n **لفل كتابي 45**\n\n"
+                                       "<@&1276897172712984647> = \n**لفل كتابي 55** \n **لفل كتابي 55**\n\n"
+                                       "<@&1276897171844759676> = \n**لفل كتابي 65** \n **لفل كتابي 65**\n\n"
+                                       "<@&1276897171043782676> = \n**لفل كتابي 75** \n **لفل كتابي 75**\n\n"
+                                       "<@&1276897170175557775> = \n**لفل كتابي 100** \n **لفل كتابي 100**\n\n"
+                                       
+                                       "**رتب الالعاب**\n\n"
+                                       "<@&1276897192526741524>\n\n"
+                                       "<@&1276897193445294161>\n\n"
+                                       "<@&1276897194376560711>\n\n"
+                                       "<@&1276897195211358229>\n\n"
+                                       "<@&1276897196121526445>\n\n"
+                                       "<@&1276897197237207041>\n\n"
+                                       "<@&1276897197840924673>\n\n"
+                                       "<@&1276897204531101797>\n\n"
+                                       "<@&1276897205516763146>\n\n"
+                                       "<@&1276897206166880270>\n\n"
+                                       "<@&1276897207144157325>\n\n"
+                                       "<@&1276897208247259227>\n\n"
+                                       "<@&1276897209526255767>\n\n"
+                                       "<@&1276897210415448149>\n\n"
+                                       "<@&1276897211267022942>\n\n"
+                                       "<@&1276897212370255964>\n\n"
+                                       
+                                       "**رتب التصاميم**\n\n"
+                                       "<@&1277588600308891681>\n\n"
+                                       "<@&1277588716411682856>\n\n"
+                                       "<@&1277588856635523072>\n\n"
+                                       "<@&1277589163549397072>\n\n"
+                                       "<@&1277588837845176473>\n\n"
+                                       "<@&1277588747520573541>\n\n"
+                                       "<@&1277588887937617953>\n\n"
+                                       
+                                       ,color=0xae2fef)
+        embed_response.set_image(url="https://b.top4top.io/p_3165ijmkb1.png")
+        embed_response.set_thumbnail(url="https://cdn.discordapp.com/attachments/1276923904392298599/1279402951663947871/logo.png?ex=66d45059&is=66d2fed9&hm=64b4f9259c102bda7b3a22f1d2322e582a41ea8d994be2908e51b398912b2e75&")
+        await interaction.response.send_message(embed=embed_response, ephemeral=True)
+
+
+@bot.command()
+async def map(ctx):
+    embed = discord.Embed(title="**خريطة السيرفر**", description="**نرجوا من كل الأعضاء قراءة خريطة السيرفر و خاصة الجدد سواءا رومات أو رتب لمعرفة كل ما يخص السيرفر و نيل أحسن تجربة فيه**",color=0xae2fef)
+    embed.set_image(url="https://d.top4top.io/p_3165msh9p3.png")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1276923904392298599/1279402951663947871/logo.png?ex=66d45059&is=66d2fed9&hm=64b4f9259c102bda7b3a22f1d2322e582a41ea8d994be2908e51b398912b2e75&")
+    await ctx.send(embed=embed, view=CustomView())
+    await ctx.message.delete()    
 bot.run(token)
